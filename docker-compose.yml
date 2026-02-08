@@ -1,11 +1,10 @@
 services:
-  mc-afkbot:
+  afkbot:
     build: .
     restart: unless-stopped
     environment:
-      - MC_HOST=
-      - MC_PORT=
+      - MC_HOST=Amadeusjin.aternos.me
+      - MC_PORT=30453
       - MC_USERNAME=AFKBot
     volumes:
       - ./auth:/app/auth
-    tty: true
