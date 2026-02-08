@@ -1,0 +1,25 @@
+{
+  "name": "Mc-afkbot",
+  "version": "1.0.0",
+  "description": "A persistent 24/7 AFK bot for Minecraft Bedrock Edition servers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "minecraft",
+    "bedrock",
+    "bot",
+    "afk",
+    "docker"
+  ],
+  "author": "sethdico",
+  "license": "MIT",
+  "dependencies": {
+    "bedrock-protocol": "^3.52.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
