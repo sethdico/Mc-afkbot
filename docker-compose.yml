@@ -1,10 +1,7 @@
+version: '3'
 services:
-  afkbot:
+  bot:
     build: .
-    restart: unless-stopped
-    environment:
-      - MC_HOST=Amadeusjin.aternos.me
-      - MC_PORT=30453
-      - MC_USERNAME=AFKBot
-    volumes:
-      - ./auth:/app/auth
+    ports:
+      - "8080:8080"
+    restart: always
