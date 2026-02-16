@@ -1,17 +1,11 @@
 {
   "name": "mc-afkbot",
-  "version": "2.0.0",
-  "description": "Professional Bedrock AFK Bot",
+  "version": "1.0.0",
   "main": "index.js",
-  "author": "sethdico",
-  "license": "MIT",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "bedrock-protocol": "^3.52.0"
-  },
-  "engines": {
-    "node": ">=18"
+    "bedrock-protocol": "^4.0.0"
   }
 }
