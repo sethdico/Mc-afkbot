@@ -1,4 +1,5 @@
 const bedrock = require('bedrock-protocol');
+const http = require('http');
 
 const config = {
   host: process.env.MC_HOST || 'Amadeusjin.aternos.me',
@@ -7,13 +8,17 @@ const config = {
   profilesFolder: './auth'
 };
 
+const webPort = process.env.PORT || 8080;
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Bot Online');
+}).listen(webPort);
+
 let client;
 let reconnectDelay = 5000;
 let loopInterval;
 
 function connect() {
-  console.log(`[BOT] Connecting to ${config.host}:${config.port}...`);
-
   try {
     client = bedrock.createClient({
       host: config.host,
@@ -25,7 +30,6 @@ function connect() {
     });
 
     client.on('join', () => {
-      console.log('[BOT] Connected');
       reconnectDelay = 5000;
       startLoop();
     });
@@ -34,7 +38,6 @@ function connect() {
     client.on('disconnect', reconnect);
     client.on('kick', reconnect);
     client.on('error', () => {});
-
   } catch (e) {
     reconnect();
   }
@@ -44,8 +47,6 @@ function reconnect() {
   if (loopInterval) clearInterval(loopInterval);
   if (client) client.removeAllListeners();
   client = null;
-
-  console.log(`[BOT] Reconnecting in ${reconnectDelay / 1000}s...`);
   setTimeout(connect, reconnectDelay);
   reconnectDelay = Math.min(reconnectDelay * 2, 60000);
 }
