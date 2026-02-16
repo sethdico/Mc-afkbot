@@ -1,11 +1,12 @@
 {
   "name": "mc-afkbot",
   "version": "1.0.0",
+  "description": "Minecraft Bedrock AFK Bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "bedrock-protocol": "^4.0.0"
+    "bedrock-protocol": "latest"
   }
 }
